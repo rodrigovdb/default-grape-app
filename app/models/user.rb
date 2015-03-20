@@ -3,7 +3,7 @@ class User
   attr_accessor :public_key
   attr_accessor :access_token
 
-  def self.authenticate(public_key, password)
+  def self.authenticate(_public_key, _password)
     build_default_user
   end
 
@@ -18,10 +18,9 @@ class User
   end
 
   def expired?
-    return false
+    false
   end
 
-private
   def self.build_default_user
     user              = User.new
     user.public_key   = user.generate_token

@@ -1,0 +1,6 @@
+LineLength:
+  Enabled : false
+AndOr:
+  Enabled : false
+Documentation:
+  Enabled : false
