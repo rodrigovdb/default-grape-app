@@ -11,12 +11,20 @@ $ bundle install
 
 ## Check an URL
 ```
-$ curl -i -H Accept-Version:v3 -H Content-Type:application/json -H XAuthToken:2dac882bd38a1a588ea2c9f2630f5c1c http://localhost:8080/api/health; echo
+$ curl -i \
+-H Accept-Version:v3 \
+-H Content-Type:application/json \
+-H XAuthToken:2dac882bd38a1a588ea2c9f2630f5c1c \
+http://localhost:8080/api/health; echo
 ```
 
 ## Obtaining a Token
 ```
-$ curl -i -H Accept-Version:v3 -X POST -d 'public_key=my_public_key&password=my_password' http://localhost:8080/api/auth; echo
+$ curl -i \
+-H Accept-Version:v3 \
+-X POST \
+-d 'public_key=my_public_key&password=my_password' \
+http://localhost:8080/api/auth; echo
 ```
 
 This will return something like
@@ -33,7 +41,11 @@ Content-Length: 44
 
 ## Acessing with token
 ```
-$ curl -i -H Accept-Version:v1 -H Content-Type:application/json -H XAuthToken:2dac882bd38a1a588ea2c9f2630f5c1c http://localhost:8080/api/foo/bar; echo
+$ curl -i \
+-H Accept-Version:v1 \
+-H Content-Type:application/json \
+-H XAuthToken:2dac882bd38a1a588ea2c9f2630f5c1c \
+http://localhost:8080/api/foo/bar; echo
 ```
 
 The will returns something like
