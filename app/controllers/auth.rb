@@ -1,6 +1,6 @@
 module Vdb
   class Auth < Grape::API
-    version 'v3', using: :header, vendor: 'rumblefish'
+    version 'v3', using: :header, vendor: 'rodrigovdb'
 
     resource :auth do
       desc 'Validates user and return the API Token if everything is OK'
