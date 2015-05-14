@@ -12,7 +12,7 @@ $ bundle install
 ## Check an URL
 ```
 $ curl -i \
--H Accept-Version:v3 \
+-H Accept-Version:v1 \
 -H Content-Type:application/json \
 -H XAuthToken:2dac882bd38a1a588ea2c9f2630f5c1c \
 http://localhost:8080/api/health; echo
@@ -21,7 +21,7 @@ http://localhost:8080/api/health; echo
 ## Obtaining a Token
 ```
 $ curl -i \
--H Accept-Version:v3 \
+-H Accept-Version:v1 \
 -X POST \
 -d 'public_key=my_public_key&password=my_password' \
 http://localhost:8080/api/auth; echo
