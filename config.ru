@@ -1,7 +1,14 @@
-# encoding utf-8
+# frozen_string_literal: true
 
-APPLICATION_PATH  = File.expand_path(File.dirname(__FILE__))
+require './lib/loader.rb'
 
-require_relative 'app/controllers/base'
+use Rack::Cors do
+  allow do
+    origins '*'
+    resource '*',
+             methods: %i[get post put delete options],
+             headers: :any
+  end
+end
 
 run Vdb::API
