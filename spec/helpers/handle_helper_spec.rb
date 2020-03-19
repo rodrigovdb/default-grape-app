@@ -44,14 +44,14 @@ describe HandleHelper do
       expect(last_response.body).to eq(users.map { |i| UserSerializer.new(i) }.to_json)
     end
 
-    xit 'return error when object is not valid' do
-      user = User.new(attributes_for(:user).except(:full_name))
+    it 'return error when object is not valid' do
+      user = User.new(attributes_for(:user).except(:email))
       allow(Object).to receive(:stubbed).and_return(user)
 
       get '/handler'
 
       expect(last_response.status).to be 400
-      expect(last_response.body).to eq('{"full_name":["Invalid full name"]}')
+      expect(last_response.body).to eq('{"email":["Invalid email format"]}')
     end
   end
 

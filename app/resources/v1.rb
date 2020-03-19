@@ -3,7 +3,7 @@
 require 'helpers'
 
 require 'resources/v1/auth'
-require 'resources/v1/foo'
+require 'resources/v1/users'
 
 module Vdb
   class V1 < Grape::API
@@ -14,7 +14,7 @@ module Vdb
     helpers HandleHelper
     helpers ParamsHelper
 
-    mount Foo
     mount Auth
+    mount User
   end
 end
