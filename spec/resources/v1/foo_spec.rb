@@ -13,12 +13,12 @@ describe Vdb::API do
     describe '/' do
       describe 'GET' do
         it 'Get foo' do
-          token = 'eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InJvZHJpZ292ZGJAZ21haWwuY29tIiwicGFzc3dvcmQiOiJyYXBhZHVyYSJ9.dYBWbBSxRyBwlw83KnUB1S03ZyeeRmwkehCYb6mDtQE'
+          token = { bar: :baz }
 
-          get '/api/v1/foo', token: token
+          get '/api/v1/foo', token: encode_jwt(token.to_json)
 
           expect(last_response.status).to eq 200
-          expect(last_response.body).to eq({ foo: :bar, token: token }.to_json)
+          expect(last_response.body).to eq({ foo: :bar }.merge(token).to_json)
         end
       end
     end

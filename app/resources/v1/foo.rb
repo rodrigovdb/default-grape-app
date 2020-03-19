@@ -10,7 +10,7 @@ module Vdb
       end
 
       get do
-        { foo: :bar }.merge(params)
+        { foo: :bar }.merge(decoded_params)
       end
     end
   end

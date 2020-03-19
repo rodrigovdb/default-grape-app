@@ -6,7 +6,9 @@ module JwtToken
   end
 
   def decode_jwt(token)
-    JWT.decode(token, jwt_token, true, algorithm: 'HS256').first.symbolize_keys
+    decoded = JWT.decode(token, jwt_token, true, algorithm: 'HS256').first
+
+    JSON.parse(decoded).symbolize_keys
   end
 
   private

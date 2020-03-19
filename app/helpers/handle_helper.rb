@@ -10,7 +10,6 @@ module HandleHelper
   def exist?(object)
     return if object
 
-    logger.warn "Object not found: #{params}"
     error! 'Object not found', 404 unless object
   end
 

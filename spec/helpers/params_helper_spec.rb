@@ -21,11 +21,11 @@ describe ParamsHelper do
 
   describe '#decoded_params' do
     it 'returns parsed token when it is valid' do
-      params = { foo: :bar }
+      params = { foo: :bar }.to_json
 
       get '/', token: encode_jwt(params)
 
-      expect(last_response.body).to eq(params.to_json)
+      expect(last_response.body).to eq(params)
     end
 
     it 'return error when token is not valid' do

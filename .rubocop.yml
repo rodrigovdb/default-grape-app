@@ -4,6 +4,7 @@ AllCops:
     - tmp/**
     - db/schema.rb
     - db/seeds.rb
+    - db/migrate/**
   TargetRubyVersion: 2.6
 
 Documentation:
