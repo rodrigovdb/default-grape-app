@@ -6,14 +6,14 @@ require 'grape-swagger'
 require 'resources/v1'
 
 module Vdb
-  class Api < Grape::API
+  class API < Grape::API
     mount V1
 
     add_swagger_documentation(
       mount_path: '/docs',
       info: {
-        title: 'CashBack API',
-        description: 'API to handle retailers, sales and cashback.'
+        title: 'Vdb API',
+        description: 'API to fork.'
       }
     )
   end
