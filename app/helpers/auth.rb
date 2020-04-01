@@ -2,6 +2,7 @@
 
 module AuthHelper
   def auth!
-    binding.pry
+    # TODO
+    # Implement a kind of authentication
   end
 end
