@@ -1,0 +1,34 @@
+version: '3.1'
+
+networks:
+  net:
+
+services:
+  db:
+    image: postgres:alpine
+    networks:
+      net:
+        aliases:
+          - postgres
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+
+  api:
+    image: api
+    build: .
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - .:/var/app
+    networks:
+      net:
+        aliases:
+          - api

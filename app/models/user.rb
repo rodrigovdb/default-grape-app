@@ -1,31 +1,53 @@
-class User
-  attr_accessor :id
-  attr_accessor :public_key
-  attr_accessor :access_token
+# frozen_string_literal: true
 
-  def self.authenticate(_public_key, _password)
-    build_default_user
+require 'models/concerns/public_id'
+
+class User < ActiveRecord::Base
+  include PublicId
+  attr_accessor :password
+
+  validates :email, uniqueness: true, format: {
+    with: /\w+@\w+(\.\w+)+/,
+    message: 'Invalid email format'
+  }
+
+  validates :password, confirmation: true
+
+  before_create :generate_encrypted_password
+  after_create  :generate_stuffs
+
+  def self.authenticate(email:, password:)
+    password = MyTokenGenerator.new(email + password).token
+
+    user = User.where(email: email, encrypted_password: password).first
+
+    user || false
   end
 
-  def self.find_by(attrs = {})
-    return unless attrs.key?(:Xauthtoken)
+  private
 
-    build_default_user
+  def generate_encrypted_password
+    self.encrypted_password = MyTokenGenerator.new(email + password).token
   end
 
-  def generate_token
-    Digest::MD5.hexdigest id.to_s + Time.new.to_s
+  def generate_stuffs
+    self.token = MyTokenGenerator.new(id.to_s).token
+    self.public_id ||= generate_public_id
+
+    save
   end
 
-  def expired?
-    false
-  end
+  class MyTokenGenerator
+    def initialize(str)
+      @str = str
+    end
 
-  def self.build_default_user
-    user              = User.new
-    user.public_key   = user.generate_token
-    user.access_token = user.generate_token
+    def token
+      Digest::MD5.hexdigest(str)
+    end
 
-    user
+    private
+
+    attr_reader :str
   end
 end
