@@ -6,6 +6,10 @@ require 'serializers/user'
 module Vdb
   class User < Grape::API
     namespace :users do
+      before do
+        auth!
+      end
+
       desc 'Create an user'
 
       params do

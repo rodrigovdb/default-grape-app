@@ -11,6 +11,7 @@ module Vdb
     version   'v1', using: :path, vendor: 'rodrigovdb'
     format    :json
 
+    helpers AuthHelper
     helpers HandleHelper
     helpers ParamsHelper
 
