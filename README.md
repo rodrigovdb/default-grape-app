@@ -1,12 +1,6 @@
 # default-grape-app
 Default Ruby Grape APP with some authentication
 
-# Install
-
-```
-$ bundle install
-```
-
 # Access
 
 ## Check an URL
@@ -59,3 +53,16 @@ Content-Length: 23
 
 {"namespace":"foo_bar"}
 ```
+
+# Developing
+
+* Change `.env` with your db
+* Change `docker-compose.yml` with right volumes
+
+```
+$ docker-compose build
+$ docker-compose run --rm api bundle exec rake db:create db:migrate db:seed
+$ docker-compose up
+```
+
+and then access `http://localhost:3000/docs` to have access to all endpoints.
