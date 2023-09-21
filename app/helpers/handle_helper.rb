@@ -8,7 +8,7 @@ module HandleHelper
   end
 
   def exist?(object)
-    return if object
+    return false if object
 
     error! 'Object not found', 404 unless object
   end

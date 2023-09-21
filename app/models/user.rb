@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   def self.authenticate(email:, password:)
     password = MyTokenGenerator.new(email + password).token
 
-    user = User.where(email: email, encrypted_password: password).first
+    user = User.where(email:, encrypted_password: password).first
 
     user || false
   end

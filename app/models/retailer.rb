@@ -27,7 +27,7 @@ class Retailer < ActiveRecord::Base
   def self.authenticate(cpf:, password:)
     token = MyTokenGenerator.new(cpf, password).token
 
-    user = Retailer.where(cpf: cpf, encrypted_password: token).first
+    user = Retailer.where(cpf:, encrypted_password: token).first
 
     user || false
   end

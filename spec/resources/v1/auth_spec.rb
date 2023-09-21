@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './app.rb'
+require './app'
 
 describe Vdb::API do
   include Rack::Test::Methods
