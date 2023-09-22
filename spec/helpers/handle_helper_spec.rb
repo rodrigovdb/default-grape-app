@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './app.rb'
+require './app'
 
 class Foo < Grape::API
   format :json

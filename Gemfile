@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '2.6.3'
+ruby '3.2.0'
 
 gem 'active_model_serializers'
 gem 'dotenv'
@@ -12,10 +12,10 @@ gem 'hashids'
 gem 'jwt'
 gem 'otr-activerecord'
 gem 'pg'
+gem 'puma'
 gem 'rack'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rake'
-gem 'unicorn'
 
 group :development, :test do
   gem 'cpf_faker'         # Generates valid CPFs
@@ -29,7 +29,10 @@ group :development, :test do
   gem 'reek'              # Code smells
   gem 'rspec'
   gem 'rubocop'           # Coding standards
-  gem 'shotgun'
+  gem 'rubocop-factory_bot'
+  gem 'rubocop-performance'
+  gem 'rubocop-rake'
+  gem 'rubocop-rspec'
   gem 'simplecov'         # Test coverage
   gem 'webmock'           # Avoid remote requests
 end

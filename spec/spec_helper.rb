@@ -8,7 +8,7 @@ end
 
 require 'dotenv/load'
 
-RACK_ENV ||= 'development'
+RACK_ENV = 'development'
 
 require 'rubygems'
 require 'bundler/setup'
@@ -27,7 +27,7 @@ end
 require 'rack/test'
 require 'rspec'
 
-APPLICATION_PATH ||= File.expand_path(File.dirname(__FILE__) + '/../')
+APPLICATION_PATH = File.expand_path("#{File.dirname(__FILE__)}/../")
 
 OTR::ActiveRecord.configure_from_file! 'config/database.yml'
 ActiveRecord::Base.logger = Logger.new('log/database.log')
@@ -51,7 +51,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.around(:each) do |example|
+  config.around do |example|
     DatabaseCleaner.cleaning do
       example.run
     end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './lib/loader.rb'
+require './lib/loader'
 
 use Rack::Cors do
   allow do

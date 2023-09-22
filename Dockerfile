@@ -1,4 +1,4 @@
-FROM ruby:2.6.3
+FROM ruby:3.2.0
 
 MAINTAINER Rodrigo VDB "rodrigovdb@gmail.com"
 
@@ -16,4 +16,5 @@ RUN bundle install --jobs 20
 
 EXPOSE 3000
 
-CMD ["bundle", "exec", "rackup", "-o", "0.0.0.0", "-p", "3000"]
+# CMD ["bundle", "exec", "rackup", "-o", "0.0.0.0", "-p", "3000"]
+CMD ["bundle", "exec", "puma", "-p", "3000", "-C", "config/puma.rb"]
