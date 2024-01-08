@@ -84,7 +84,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     mustermann-grape (1.0.2)
       mustermann (>= 1.0.0)
-    nio4r (2.5.9)
+    nio4r (2.7.0)
     otr-activerecord (2.1.2)
       activerecord (>= 4.0, < 7.1)
       hashie-forbidden_attributes (~> 0.1)
@@ -99,7 +99,7 @@ GEM
     pry-nav (1.0.0)
       pry (>= 0.9.10, < 0.15)
     public_suffix (5.0.3)
-    puma (6.4.0)
+    puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (3.0.8)
@@ -180,6 +180,7 @@ GEM
 PLATFORMS
   aarch64-linux
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   active_model_serializers
